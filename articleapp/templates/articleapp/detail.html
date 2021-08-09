@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+    <div class="container text-center">
+        <div class="my-5">
+            {#      제목, 글쓴이, 작성일      #}
+            <h1 class="NNS_B">{{ target_article.title }}</h1>
+            <h3>{{ target_article.writer.profile.nickname }}</h3>
+            <p>{{ target_article.created_at }}</p>
+        </div>
+
+        <hr>
+
+        <div class="my-5">
+            {#      게시글 대표이미지, 글내용      #}
+            <img src="{{ target_article.image.url }}"
+                 class="article_image"
+                 alt="">
+            <div class="article_content">
+                {{ target_article.content }}
+            </div>
+            {% if target_article.writer == user %}
+
+
+            <div>
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                   class="btn btn-success rounded-pill px-5">
+                    Update
+                </a>
+                <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                   class="btn btn-danger rounded-pill px-5">
+                    Delete
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
