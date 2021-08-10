@@ -11,6 +11,7 @@
             <form action="{% url 'createapp:create' %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
+
             <div class="m-5">
             <input type="submit"
                    class="btn btn-dark rounded-pill px-5">
