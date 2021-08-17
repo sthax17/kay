@@ -5,8 +5,16 @@
     </div>
 
     <div class="pargmatic_header_button">
-        <span>nav1</span>
-        <span>nav2</span>
+        <span>
+            <a href="{% url 'articleapp:list' %}">
+                Articles
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'projectapp:list' %}">
+                Projects
+            </a>
+        </span>
 
         {% if not user.is_authenticated %}
 
