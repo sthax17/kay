@@ -8,7 +8,7 @@
             <h4>Create Comment</h4>
         </div>
         <div>
-            <form action="{% url 'createapp:create' %}" method="post">
+            <form action="{% url 'accountapp:create' %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
 
