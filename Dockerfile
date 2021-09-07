@@ -6,7 +6,7 @@ RUN git clone https://github.com/sthax17/kay.git
 
 WORKDIR /home/kay/
 
-RUN echo "......" > .env
+RUN echo "dsadsad""
 
 RUN pip install -r requirements.txt
 
