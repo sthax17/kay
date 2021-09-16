@@ -8,7 +8,7 @@ RUN git clone https://github.com/sthax17/kay.git
 
 WORKDIR /home/kay/
 
-RUN echo "sdsdsdd" > .env
+RUN echo "rrerewrewrew" > .env
 
 RUN pip install -r requirements.txt
 
