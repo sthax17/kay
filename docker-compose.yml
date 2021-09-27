@@ -14,13 +14,26 @@ services:
       - kay_media:/data/media/
 
   django:
-    image: kay_django:3
+    image: kay_django:4
     networks:
       - kay_network
     volumes:
       - kay_static:/home/kay/staticfiles/
       - kay_media:/home/kay/media/
+    secrets:
+      - DJANGO_SECRET_KEY
 
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - kay_network
+    volumes:
+      - kay_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 
 networks:
@@ -29,7 +42,11 @@ networks:
 volumes:
   kay_static:
   kay_media:
+  kay_mariadb:
 
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
 
 
 
